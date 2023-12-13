@@ -19,7 +19,7 @@ const generateCompChoice = () => {
 const drawGame = () => {
     console.log("Game was Draw");
     msg.innerText = "Game Draw Play Again!";
-    // msg.style.backgroundColor = "Black";
+    msg.style.backgroundColor = "Black";
 
 }
 
