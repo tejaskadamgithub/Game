@@ -1,7 +1,5 @@
-
 let userScore = 0;
 let compScore = 0;
-
 
 const choices = document.querySelectorAll(".choice");
 const msg =  document.querySelector("#msg");
@@ -50,12 +48,13 @@ const playGame = (userChoice) =>{
     const compChoice = generateCompChoice();
     console.log("comp Choice = ", compChoice);
 
-    if(userChoice === compChoice){
+    if(userChoice === compChoice)
+    {
         drawGame();
-       
 
     }
-    else {
+    else 
+    {
         let userWin = true;
         if(userChoice === "rock"){
             userWin = compChoice == "paper" ? false : true;
@@ -78,8 +77,6 @@ choices.forEach((choice) => {
         console.log(userChoice);
         playGame(userChoice);
     });
-
-
 });
 
 
