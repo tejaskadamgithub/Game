@@ -25,10 +25,15 @@ h1 {
     justify-content: center;
     align-items: center;
 }
-.choice:hover{
+
+.hide {
+    display: none;
+} 
+.choice:hover    {
     /* opacity: 0.5;  It is used for blur effect */
     cursor: pointer;
     background-color: #081b31;
+    
 
 }
 
@@ -96,9 +101,8 @@ img {
 table, th, td {
     border: 1px solid black;
 }
-.hide {
-    display: none;
-} 
+
+
 
 .select {
     display: flex;
@@ -110,11 +114,15 @@ table, th, td {
 
 }
 
-.win{
+
+.name {
+  
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2rem;
-    margin-top: 3rem;
+    margin-top: 2rem;
+    gap: 9.5rem;
+    margin-left: 1rem;
 
 }

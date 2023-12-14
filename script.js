@@ -1,9 +1,5 @@
 let userScore = 0;
 let compScore = 0;
-let roundCounter = 0;
-const maxRounds = 5; // Adjust this value to the desired number of rounds.
-
-// ... (your existing code)
 
 
 const choices = document.querySelectorAll(".choice");
@@ -11,7 +7,6 @@ const msg =  document.querySelector("#msg");
 const userScorePara = document.querySelector("#user_score");
 const compScorePara = document.querySelector("#comp_score");
 
-const winner = document.querySelector(".winner");
 
 
 
@@ -55,23 +50,6 @@ const showWinner = (userWin, userChoice, compChoice) => {
 
 
 
-const timeGame = () => {
-    if (roundCounter === maxRounds) {
-        if (userScore > compScore) {
-            winner.innerText = "User Wins the Game!";
-        } else if (userScore < compScore) {
-            winner.innerText = "Computer Wins the Game!";
-        } else {
-            winner.innerText = "It's a Tie!";
-        }
-
-        // Optionally, you can reset scores and roundCounter for a new game
-        userScore = 0;
-        compScore = 0;
-        roundCounter = 0;
-    }
-};
-
 
 
 const playGame = (userChoice) =>{
@@ -104,9 +82,7 @@ const playGame = (userChoice) =>{
             userWin = compChoice == "rock" ? false : true;
 
         }
-        showWinner(userWin, userChoice, compChoice); // updateTable(userChoice, compChoice);
-         roundCounter++; 
-         timeGame();
+        showWinner(userWin, userChoice, compChoice); 
 
     }
 };
