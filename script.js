@@ -1,7 +1,7 @@
 let userScore = 0;
 let compScore = 0;
 let clickCounter = 0;
-const maxClicks = 5; // Adjust this value to the desired number of clicks.
+let maxClicks = 5; // Adjust this value to the desired number of clicks.
 
 // const resetTable = () => {
 //     const table = document.querySelector('table');
@@ -19,13 +19,12 @@ const maxClicks = 5; // Adjust this value to the desired number of clicks.
 
 
 
-
 const choices = document.querySelectorAll(".choice");
 const msg =  document.querySelector("#msg");
 const userScorePara = document.querySelector("#user_score");
 const compScorePara = document.querySelector("#comp_score");
 
-const winner = document.querySelector(".win");
+const winner = document.querySelector(".winner");
 
 // const user_selector = document.querySelector(".user_selector");
 // const comp_selector = document.querySelector(".comp_selector");
@@ -55,14 +54,14 @@ const showWinner = (userWin, userChoice, compChoice) => {
 
     if(userWin){
        userScore++;
-       userScorePara.innerText = userScore;
+       let userRes = userScorePara.innerText = userScore;
        msg.innerText = `You Win! ${userChoice} beats ${compChoice}`;
        msg.style.backgroundColor = "Green";
 
     }
     else{
         compScore++;
-        compScorePara.innerText = compScore;
+        let compRes = compScorePara.innerText = compScore;
         console.log("you lose");
         msg.innerText = `You lost ${compChoice} beats your ${userChoice}`;
         msg.style.backgroundColor = "Red";
@@ -127,6 +126,19 @@ const playGame = (userChoice) =>{
 
     }
 };
+
+
+if(clickCounter === maxClicks){
+    if(userRes>compRes){
+        winner.innerText = "User WIN";
+    }
+    else{
+        winner.innerText = "user lose";
+    }
+
+   
+}
+
 
 choices.forEach((choice) => {
     choice.addEventListener("click", () =>{
