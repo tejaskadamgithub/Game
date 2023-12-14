@@ -3,18 +3,18 @@ let compScore = 0;
 let clickCounter = 0;
 const maxClicks = 5; // Adjust this value to the desired number of clicks.
 
-const resetTable = () => {
-    const table = document.querySelector('table');
-    // Remove all rows from the table except the header row (first row).
-    for (let i = table.rows.length - 1; i > 0; i--) {
-        table.deleteRow(i);
-    }
-};
+// const resetTable = () => {
+//     const table = document.querySelector('table');
+//     // Remove all rows from the table except the header row (first row).
+//     for (let i = table.rows.length - 1; i > 0; i--) {
+//         table.deleteRow(i);
+//     }
+// };
 
-const resetTableAndCounter = () => {
-    resetTable();
-    clickCounter = 0;
-};
+// const resetTableAndCounter = () => {
+//     resetTable();
+//     clickCounter = 0;
+// };
 
 
 
@@ -25,10 +25,12 @@ const msg =  document.querySelector("#msg");
 const userScorePara = document.querySelector("#user_score");
 const compScorePara = document.querySelector("#comp_score");
 
-const user_selector = document.querySelector(".user_selector");
-const comp_selector = document.querySelector(".comp_selector");
+const winner = document.querySelector(".win");
 
-// const selectors = document.querySelector(".selector2");
+// const user_selector = document.querySelector(".user_selector");
+// const comp_selector = document.querySelector(".comp_selector");
+
+
 
 const generateCompChoice = () => {
     const options = ["rock", "paper", "scissor"];
@@ -43,7 +45,7 @@ const drawGame = () => {
     console.log("Game was Draw");
     msg.innerText = "Game Draw Play Again!";
     msg.style.backgroundColor = "Black";
-    // updateTable(null, null); 
+   
     
 
 }
@@ -68,24 +70,24 @@ const showWinner = (userWin, userChoice, compChoice) => {
     
 };
 
-const updateTable = (userChoice, compChoice) => {
-    const table = document.querySelector('table');
-    const newRow = table.insertRow(1);
+// const updateTable = (userChoice, compChoice) => {
+//     const table = document.querySelector('table');
+//     const newRow = table.insertRow(1);
 
     
 
-    const userCell = newRow.insertCell(0);
-    const compCell = newRow.insertCell(1);
+//     const userCell = newRow.insertCell(0);
+//     const compCell = newRow.insertCell(1);
 
-    userCell.textContent = userChoice;
-    compCell.textContent = compChoice;
+//     userCell.textContent = userChoice;
+//     compCell.textContent = compChoice;
 
-    clickCounter++;
+//     clickCounter++;
 
-    if (clickCounter === maxClicks) {
-        resetTableAndCounter(); // Reset the table and counter after the specified number of clicks.
-    }
-};
+//     if (clickCounter === maxClicks) {
+//         resetTableAndCounter(); // Reset the table and counter after the specified number of clicks.
+//     }
+// };
 
 
 
@@ -93,16 +95,14 @@ const playGame = (userChoice) =>{
 
    
     console.log("user Choice = ", userChoice);
-    user_selector.innerText = userChoice; 
-    // userChoice++;
 
+  
 
     //generate Computer Choice
     const compChoice = generateCompChoice();
     console.log("comp Choice = ", compChoice);
-    comp_selector.innerText = compChoice; 
+    
 
-    updateTable(userChoice, compChoice);
 
     if(userChoice === compChoice)
     {
@@ -122,7 +122,7 @@ const playGame = (userChoice) =>{
 
         }
         showWinner(userWin, userChoice, compChoice);
-        updateTable(userChoice, compChoice);
+        // updateTable(userChoice, compChoice);
         
 
     }
