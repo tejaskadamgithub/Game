@@ -3,21 +3,6 @@ let compScore = 0;
 let clickCounter = 0;
 let maxClicks = 5; // Adjust this value to the desired number of clicks.
 
-// const resetTable = () => {
-//     const table = document.querySelector('table');
-//     // Remove all rows from the table except the header row (first row).
-//     for (let i = table.rows.length - 1; i > 0; i--) {
-//         table.deleteRow(i);
-//     }
-// };
-
-// const resetTableAndCounter = () => {
-//     resetTable();
-//     clickCounter = 0;
-// };
-
-
-
 
 const choices = document.querySelectorAll(".choice");
 const msg =  document.querySelector("#msg");
@@ -25,9 +10,6 @@ const userScorePara = document.querySelector("#user_score");
 const compScorePara = document.querySelector("#comp_score");
 
 const winner = document.querySelector(".winner");
-
-// const user_selector = document.querySelector(".user_selector");
-// const comp_selector = document.querySelector(".comp_selector");
 
 
 
@@ -69,24 +51,19 @@ const showWinner = (userWin, userChoice, compChoice) => {
     
 };
 
-// const updateTable = (userChoice, compChoice) => {
-//     const table = document.querySelector('table');
-//     const newRow = table.insertRow(1);
 
-    
+const timeGame = () => {
+    if(clickCounter === maxClicks){
+        if(userRes>compRes){
+            winner.innerText = "User WIN";
+         }
+         else{
+             winner.innerText = "user lose";
+        }
 
-//     const userCell = newRow.insertCell(0);
-//     const compCell = newRow.insertCell(1);
-
-//     userCell.textContent = userChoice;
-//     compCell.textContent = compChoice;
-
-//     clickCounter++;
-
-//     if (clickCounter === maxClicks) {
-//         resetTableAndCounter(); // Reset the table and counter after the specified number of clicks.
-//     }
-// };
+   
+    }
+}
 
 
 
@@ -120,24 +97,13 @@ const playGame = (userChoice) =>{
             userWin = compChoice == "rock" ? false : true;
 
         }
-        showWinner(userWin, userChoice, compChoice);
-        // updateTable(userChoice, compChoice);
+        showWinner(userWin, userChoice, compChoice); // updateTable(userChoice, compChoice);
         
 
     }
 };
 
 
-if(clickCounter === maxClicks){
-    if(userRes>compRes){
-        winner.innerText = "User WIN";
-    }
-    else{
-        winner.innerText = "user lose";
-    }
-
-   
-}
 
 
 choices.forEach((choice) => {
