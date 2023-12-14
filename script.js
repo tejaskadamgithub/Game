@@ -1,7 +1,9 @@
 let userScore = 0;
 let compScore = 0;
-let clickCounter = 0;
-let maxClicks = 5; // Adjust this value to the desired number of clicks.
+let roundCounter = 0;
+const maxRounds = 5; // Adjust this value to the desired number of rounds.
+
+// ... (your existing code)
 
 
 const choices = document.querySelectorAll(".choice");
@@ -52,18 +54,23 @@ const showWinner = (userWin, userChoice, compChoice) => {
 };
 
 
+
 const timeGame = () => {
-    if(clickCounter === maxClicks){
-        if(userRes>compRes){
-            winner.innerText = "User WIN";
-         }
-         else{
-             winner.innerText = "user lose";
+    if (roundCounter === maxRounds) {
+        if (userScore > compScore) {
+            winner.innerText = "User Wins the Game!";
+        } else if (userScore < compScore) {
+            winner.innerText = "Computer Wins the Game!";
+        } else {
+            winner.innerText = "It's a Tie!";
         }
 
-   
+        // Optionally, you can reset scores and roundCounter for a new game
+        userScore = 0;
+        compScore = 0;
+        roundCounter = 0;
     }
-}
+};
 
 
 
@@ -98,7 +105,8 @@ const playGame = (userChoice) =>{
 
         }
         showWinner(userWin, userChoice, compChoice); // updateTable(userChoice, compChoice);
-        
+         roundCounter++; 
+         timeGame();
 
     }
 };
